@@ -1,0 +1,137 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "CRM Report"
+    },
+    "schemes": [
+        "http",
+        "https"
+    ],
+    "paths": {
+        "/auth/login": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Login Api",
+                "description": "Login Api",
+                "operationId": "login",
+                "produces": [
+                    "application/json",
+                    "application/xml",
+                    "application/x-www-form-urlencoded"
+                ],
+                "parameters": [
+                    {
+                        "name": "username",
+                        "in": "formData",
+                        "description": "",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "password",
+                        "in": "formData",
+                        "description": "",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid token"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            }
+        },
+        "/api/v1/user/profile": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Get user profile",
+                "description": "User profile",
+                "operationId": "profile",
+                "produces": [
+                    "application/json",
+                    "application/xml"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid token"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/dashboard/index": {
+            "get": {
+                "tags": [
+                    "Dashboard"
+                ],
+                "summary": "Fet dashboard data",
+                "description": "Fatch all data for crm dashboard",
+                "operationId": "dashboard",
+                "produces": [
+                    "application/json",
+                    "application/xml"
+                ],
+                "parameters": [  
+                    {  
+                       "name":"page",
+                       "in":"query",
+                       "description":"Which page data you want to retrive",
+                       "required":true,
+                       "type":"number"
+                    },
+                    {  
+                        "name":"limit",
+                        "in":"query",
+                        "description":"How much data you want on par page",
+                        "required":true,
+                        "type":"number"
+                     }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid Request"
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        }
+    },
+    "securityDefinitions": {
+        "api_key": {
+            "type": "apiKey",
+            "name": "x-access-token",
+            "in": "header"
+        }
+    }
+}
