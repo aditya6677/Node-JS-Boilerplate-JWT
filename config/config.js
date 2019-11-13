@@ -3,21 +3,21 @@ module.exports = () => {
     switch(env){
         case 'development':
             return {
-                HOST : '35.154.43.115',
-                PORT : '8007',
-                DB_USERNAME : 'test',
-                DB_PASSWORD : 'Test@12345',
-                DB_NAME : 'grindkey',
+                HOST : '',
+                PORT : '',
+                DB_USERNAME : '',
+                DB_PASSWORD : '',
+                DB_NAME : '',
                 DB_DIALECT : 'mysql',
                 JWT_SECRET : 'worldisfullofdevelopers'
             }
         case 'production':
             return {
-               /*  HOST : '35.154.43.115',
-                PORT : '8007',
-                DB_USERNAME : 'test',
-                DB_PASSWORD : 'Test@12345',
-                DB_NAME : 'grindkey',
+               /*  HOST : '',
+                PORT : '',
+                DB_USERNAME : '',
+                DB_PASSWORD : '',
+                DB_NAME : '',
                 JWT_SECRET : 'worldisfullofdevelopers' */
             }
     }
